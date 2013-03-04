@@ -1,0 +1,11 @@
+cenario Outline: eating
+Given there are &lt;start&gt; cucumbers
+When I eat &lt;eat&gt; cucumbers
+Then I should have &lt;left&gt; cucumbers
+
+Examples:
+| start    | eat       | left   |
+| 12       | 5         | 7      |
+| 20       | 5         | 15     |
+| 9999999  | xxxxxx    | uuuuuu |
+| unamexxx | abcedfgie | xxx    |

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML5 & CSS3 demo</title>
+        <style type="text/css">
+            #here {width: 200px;height: 100px;border: 1px solid #000;}
+        </style>
+    </head>
+    <body>
+
+        <p>拖拽读取二进制文件</p>
+        <div id="here"></div>
+        <div id="result"></div>
+        <script type="text/javascript">
+            var target = document.querySelector('#here');
+            var result = document.querySelector('#result');
+            //var slice = file.slice(0,4);
+            var reader = new FileReader();
+
+            target.addEventListener('dragover',function(event) {
+                event.preventDefault();
+                target.style.borderColor = "#f00";
+            },false);
+
+            target.addEventListener('dragleave',function(event) {
+                event.preventDefault();
+                target.style.borderColor = "#000";
+            },false);
+
+
+            reader.onload = function (event) {
+                var text = event.target.result;
+                var view = new DataView(text);
+                var magic = view.getUint32(0,false);
+                var a = {};
+
+                switch(magic) {
+                    case 0x89504E47: a.verified_type  ="image/png"; break;
+                    case 0x47494638: a.verified_type  ="image/gif"; break;
+                    case 0x25504446: a.verified_type  ="application/pdf"; break;
+                    case 0x504b0304: a.verified_type  ="application/zip"; break;
+                }
+                target.style.borderColor = "#000";
+                console.log('verified_type: ' + a.verified_type);
+            };
+            reader.onerror = function (event) {
+                alert('error');
+            }
+
+            target.addEventListener('drop',function (event) {
+                event.preventDefault();
+
+                var i = 0,
+                    files = event.dataTransfer.files,
+                    len = files.length;
+                for (var i = files.length - 1; i >= 0; i--) {
+                    console.log("name: " + files[i].name);
+                    console.log("type: " + files[i].type);
+                    console.log("size: " + files[i].size);
+                    reader.readAsArrayBuffer(files[i]);
+                }
+
+            },false);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+2013-02-04 16:40:48 +0800: aaa
+2013-02-04 16:44:43 +0800: undefined
+2013-02-04 16:44:59 +0800: throw 2
+2013-02-04 16:45:22 +0800: Object [object Window] has no method 'aa'
+2013-02-04 17:42:06 +0800: Object [object Window] has no method 'aa'

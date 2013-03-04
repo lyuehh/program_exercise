@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML5 & CSS3 demo</title>
+        <style type="text/css">
+            #here {width: 200px;height: 100px;border: 1px solid #000;}
+        </style>
+    </head>
+    <body>
+        <p>只允许图片</p>
+        <input type="file" name="files" id="files" accept="image/*" multiple />
+        <div id="result"></div>
+        <script type="text/javascript">
+            document.querySelector('#files').onchange = function(e) {
+                var files = e.target.files;
+                var text = "";
+                for (var i = 0; i < files.length; i++) {
+                    var f = files[i];
+                    if(f.type.substring(0,6) !== "image/") {
+                        alert('image only');
+                        break;
+                    }
+                    text += "name: " + f.name + ", size: " + f.size + ", type: " + f.type + ", lastModifiedDate: " + f.lastModifiedDate + '<br />';
+                }
+                document.querySelector('#result').innerHTML = text;
+            };
+        </script>
+
+        <p>目录浏览</p>
+        <input type="file" name="dir" id="dir" webkitdirectory>
+        <div id="dir_result"></div>
+        <script type="text/javascript">
+            document.querySelector('#dir').onchange = function (e) {
+                var out = [];
+                var files = e.target.files;
+                for (var i = 0; i < files.length; i++) {
+                      out.push(files[i].webkitRelativePath);
+                  };
+                  document.querySelector('#dir_result').innerHTML = out.join('<br />');
+            };
+        </script>
+
+        <p>拖拽上传图片</p>
+        <div id="here"></div>
+        <script type="text/javascript">
+            var target = document.querySelector('#here');
+
+            target.addEventListener('dragover',function(event) {
+                event.preventDefault();
+                target.style.borderColor = "#f00";
+            },false);
+
+            target.addEventListener('dragleave',function(event) {
+                event.preventDefault();
+                target.style.borderColor = "#000";
+            },false);
+
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var dataUri = event.target.result,
+                    img = document.createElement('img');
+                img.src = dataUri;
+                target.style.borderColor = "#000";
+                document.body.appendChild(img);
+            };
+            target.addEventListener('drop',function (event) {
+                event.preventDefault();
+
+                var i = 0,
+                    files = event.dataTransfer.files,
+                    len = files.length;
+                for (var i = files.length - 1; i >= 0; i--) {
+                    console.log("name: " + files[i].name);
+                    console.log("type: " + files[i].type);
+                    console.log("size: " + files[i].size);
+                    reader.readAsDataURL(files[i]);
+                }
+
+            },false);
+        </script>
+    </body>
+</html>
