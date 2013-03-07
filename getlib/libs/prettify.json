@@ -1,0 +1,11 @@
+{
+  "name": "underscore",
+  "url": "http://underscorejs.org/",
+  "git": "git://github.com/documentcloud/underscore.git",
+  "versions": {
+    "1.4.2": {
+      "dev": "http://underscorejs.org/underscore.js",
+      "min": "http://underscorejs.org/underscore-min.js"
+    }
+  }
+}

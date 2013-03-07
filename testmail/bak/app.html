@@ -1,0 +1,27 @@
+require [32m[1;32m'[0m[32mrubygems[1;32m'[0m[32m[0m
+require [32m[1;32m'[0m[32mwatir[1;32m'[0m[32m[0m
+require [32m[1;32m'[0m[32mwatir-webdriver[1;32m'[0m[32m[0m
+
+[37m#require '/Users/weiwei/work/project/testmail/a'[0m
+require [32m[1;32m'[0m[32m./steps[1;32m'[0m[32m[0m
+
+date1 = [1;34m[4mTime[0m.new
+
+[1;31mclass[0m [1;35mApp[0m
+	include [1;34m[4mSteps[0m
+	include [1;34m[4mRake[0m::[1;34m[4mDSL[0m
+	attr_accessor [1;32m:browser[0m
+	
+	[1;31mdef[0m [1;34minitialize[0m
+		@browser = [1;34m[4mWatir[0m::[1;34m[4mBrowser[0m.new
+	[1;31mend[0m
+[1;31mend[0m
+
+app = [1;34m[4mApp[0m.new
+app.run([32m[1;32m'[0m[32mfile://localhost/Users/weiwei/work/project/testmail/html/index.html[1;32m'[0m[32m[0m)
+p app.methods
+
+p app.methods.select { |i| p i.index([32m[1;32m'[0m[32mstep_[1;32m'[0m[32m[0m) == [1;34m0[0m}
+
+date2 = [1;34m[4mTime[0m.new
+puts [32m[1;32m"[0m[32mTime: #{date2-date1}[0m[32m seconds[1;32m"[0m[32m[0m

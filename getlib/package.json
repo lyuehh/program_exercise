@@ -1,0 +1,40 @@
+{
+  "name": "getlib",
+  "description": "get js libs easily",
+  "version": "0.0.1",
+  "author": {
+    "name": "lyuehh",
+    "email": "lyuehh@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "maintainers": [
+    {
+      "name": "lyuehh",
+      "email": "lyuehh@gmail.com"
+    }
+  ],
+  "keywords": [
+    "library",
+    "download"
+  ],
+  "dependencies": {
+    "optimist": "*",
+    "underscore": "*",
+    "request": "*",
+    "mkdirp": "*"
+  },
+  "devDependencies": {
+  },
+  "main": "./index.js",
+  "scripts": {
+    "test": ""
+  },
+  "engines": {
+    "node": "*"
+  },
+  "readme": "",
+  "readmeFilename": "README.md"
+}

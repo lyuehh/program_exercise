@@ -1,0 +1,11 @@
+{
+  "name": "backbone",
+  "url": "http://backbonejs.org/",
+  "git": "git://github.com/documentcloud/backbone.git",
+  "versions": {
+    "0.9.2": {
+      "dev": "http://backbonejs.org/backbone.js",
+      "min": "http://backbonejs.org/backbone-min.js"
+    }
+  }
+}

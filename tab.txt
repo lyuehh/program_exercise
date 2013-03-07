@@ -9,3 +9,4 @@ Examples:
 | 20       | 5         | 15     |
 | 9999999  | xxxxxx    | uuuuuu |
 | unamexxx | abcedfgie | xxx    |
+| xxx      | uname     | aa     |
