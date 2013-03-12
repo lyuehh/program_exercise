@@ -8,20 +8,20 @@ angular.module('angularApp')
       {done: false, value: 'todo3'},
       {done: true, value: 'todo4'}
     ];
-    $scope.add = function(t) {
+    $scope.add = function (t) {
       this.todoLists.push({
-        done:false,
+        done: false,
         value: t.value
       });
       $scope.t.value = '';
     };
-    $scope.remaining = function() {
-      return this.todoLists.length - this.todoLists.filter(function(t) {
+    $scope.remaining = function () {
+      return this.todoLists.length - this.todoLists.filter(function (t) {
         return t.done;
       }).length;
     };
-    $scope.clear = function() {
-      var reset = this.todoLists.filter(function(t) {
+    $scope.clear = function () {
+      var reset = this.todoLists.filter(function (t) {
         return !t.done;
       });
       this.todoLists = reset;
