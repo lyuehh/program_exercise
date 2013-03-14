@@ -8,6 +8,9 @@ _.each(_.range(5), function() {
   if(random_num < 10) {
     random_num = ('00' + random_num).slice(-2);
   }
+  if(random_num === 0) {
+    random_num = '28';
+  }
   random_num_arr.push(random_num);
   code_arr.push(code[random_num]);
 });
