@@ -11,6 +11,10 @@ angular.module('todoApp', [])
         templateUrl: 'views/todo.html',
         controller: 'TodoCtrl'
       })
+      .when('/trs', {
+        templateUrl: 'views/trs.html',
+        controller: 'TrsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

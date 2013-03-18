@@ -12,7 +12,7 @@
   "latedef": true,
   "newcap": true,
   "noarg": true,
-  "quotmark": "single",
+  "quotmark": false,
   "regexp": true,
   "undef": true,
   "unused": true,
@@ -25,6 +25,7 @@
     "beforeEach": true,
     "expect": true,
     "it": true,
-    "inject": true
+    "inject": true,
+    "_": true
   }
 }
