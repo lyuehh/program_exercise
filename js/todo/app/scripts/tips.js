@@ -7,12 +7,13 @@ $.fn.tips = function(str, time) {
   console.log(str);
   var template = $('' +
     '<div class="tips_all">' +
-    '<div class="tips_top"></div>' +
+    // '<div class="tips_top"></div>' +
     '<div class="tips_content">' +
     '<b></b>' +
     '<span>' + str + '</span>' +
     '<b class="tips_right"></b>' +
     '</div>' +
+    '<div class="tips_bottom"></div>' +
     '</div>' +
     '');
   var $html = template;
@@ -21,10 +22,10 @@ $.fn.tips = function(str, time) {
   var l = $el.offset().left;
   // var h = $html.height();
   $html.css('position', 'absolute');
-  $html.css('top', t + 25);
+  $html.css('top', t - 25 - 6);
   $html.css('left', l);
   if(!time) {
-    time = 5;
+    time = 5000;
   }
   setTimeout(function() {
     $html.remove();
