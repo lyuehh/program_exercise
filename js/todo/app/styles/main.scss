@@ -1,3 +1,11 @@
 @import "compass_twitter_bootstrap";
 
 .done-true {text-decoration:line-through;}
+.fn_tips {border: 1px solid #f00;}
+
+.tips_top{ background-image:url(../images/tips.png); width:11px; height:6px; background-position:-28px 0; margin-left:40px; }
+.tips_content{ clear:left; overflow:hidden; }
+.tips_content b{ background-image:url(../images/tips.png); height:25px; width:7px; background-position:0 -6px; display:block; float:left; }
+.tips_content span{ display:block; float:left; padding:0 3px; background-color:#82b6de; height:25px; line-height:25px; color:#FFF; font-size:12px; }
+.tips_content .tips_right{ background-position:-148px -6px; }
+

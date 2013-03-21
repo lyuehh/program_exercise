@@ -3,6 +3,7 @@ function add_1(x, y) {
 }
 
 console.log(add_1(1,2));
+console.log();
 
 function add(x, y) {
   var oldx = x, oldy = y;
