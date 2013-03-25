@@ -1,0 +1,6 @@
+task :tran, :name do |t, args|
+  file = args[:name]
+  puts "#{file}.json"
+  c =  `grep ':' #{file}.json | awk -F ':' '{print $1}' | sed 's/^/\"/g' | sed 's/$/\",/g' | tr '\n' ' ' `
+  puts '[' + c + ']'
+end

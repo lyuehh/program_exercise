@@ -1,0 +1,12 @@
+<?js
+  var user = ["_method", "id", "password", "name", "dept", "status", "expire", "tel", "mobile", "join", "position", "address"];
+?>
+
+<?js var i; ?>
+<?js for(i=0,i<user.length;i++) { ?>
+<div class="input_list">
+  <span class="input_name">群组账号：</span>
+  <input type="text" class="input_area" id="@{user[i]}" name="@{user[i]}" value="" />
+  <i class="input_limit">*</i>
+</div>
+<?js } ?>

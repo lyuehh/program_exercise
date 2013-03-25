@@ -1,0 +1,14 @@
+{
+"_method": "new",
+"id": "用户地址",
+"password": "密码",
+"name": "名字",
+"dept": "部门ID",
+"status": "状态",
+"expire": "过期时间",
+"tel": "电话",
+"mobile": "手机",
+"join": "入职时间",
+"position": "职务",
+"address": "地址"
+}
