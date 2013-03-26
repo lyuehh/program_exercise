@@ -1,4 +1,5 @@
 #!/bin/sh
 dir='sh6'
-ls -1 $dir
+cd $dir
+for i in *; do mv "$i" "$(echo $i | sed 's/ /_/g')";done
 
