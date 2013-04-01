@@ -1,3 +1,8 @@
+/*
+   编码实现求给定字符串(全为小写英文字母)的最小后继，如“abc”的最小后继为
+   “abd”,“dhz”的最小后继为“di”。
+ * */
+
 #include <stdio.h>
 #include <string.h>
 
