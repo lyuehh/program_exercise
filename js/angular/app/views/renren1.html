@@ -1,19 +1,29 @@
 <div class="area" id="area">
-  <div class="left"></div>
   <div class="pics">
-    <img src="/images/cat/1.jpg" alt="" />
-    <img src="/images/cat/2.jpg" alt="" />
-    <img src="/images/cat/3.jpg" alt="" />
-    <img src="/images/cat/4.jpg" alt="" />
-    <img src="/images/cat/5.jpg" alt="" />
-    <img src="/images/cat/6.jpg" alt="" />
-    <img src="/images/cat/7.jpg" alt="" />
-    <img src="/images/cat/8.jpg" alt="" />
-    <img src="/images/cat/8.jpg" alt="" />
-    <img src="/images/cat/10.jpg" alt="" />
-    <img src="/images/cat/11.jpg" alt="" />
-    <img src="/images/cat/12.jpg" alt="" />
+    <div class="left">aaa</div>
+    <ul>
+     <li><img src="/images/cat/1.jpg" alt="" /></li>
+     <li><img src="/images/cat/2.jpg" alt="" /></li>
+     <li><img src="/images/cat/3.jpg" alt="" /></li>
+     <li><img src="/images/cat/4.jpg" alt="" /></li>
+     <li><img src="/images/cat/5.jpg" alt="" /></li>
+     <li><img src="/images/cat/6.jpg" alt="" /></li>
+     <li><img src="/images/cat/7.jpg" alt="" /></li>
+     <li><img src="/images/cat/8.jpg" alt="" /></li>
+     <li><img src="/images/cat/8.jpg" alt="" /></li>
+     <li><img src="/images/cat/10.jpg" alt="" /></li>
+     <li><img src="/images/cat/11.jpg" alt="" /></li>
+     <li><img src="/images/cat/12.jpg" alt="" /></li>
+    </ul>
+    <div class="right">bbb</div>
   </div>
-  <div class="right"></div>
 </div>
 
+<style type="text/css">
+#area .pics {width: 900px;height: 100px;overflow:hidden; border: 1px solit #f00;white-space: nowrap;}
+.pics img {display:inline-block;}
+/* .pics ul {display:inline;overflow: hidden;} */
+.pics ul li{display:inline;list-style:none;}
+.left {float:left;}
+.right {float:right}
+</style>
