@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+<!--下面是脚本-->
+<mx:Script>
+	<![CDATA[
+	import mx.managers.PopUpManager;
+	import com.www.Note;
+	import mx.containers.TitleWindow;
+	private function showNote():void {
+		var noteWindow:Note = Note(
+		PopUpManager.createPopUp(this, Note, true));
+	}
+]]>
+</mx:Script>
+<!--下面是验证声明
+<mx:StringValidator minLength="4" maxLength="16" source="{user_name}" property="string" id="SV" />
+-->
+<!--下面是特效声明-->
+<mx:Dissolve id="dissolveIn" duration="1000" alphaFrom="0.0" alphaTo="1.0"/>
+<!--下面是HTTPService-->
+
+<!--下面是布局-->
+<mx:HBox width="100%">
+<mx:LinkButton label='Note' click='showNote()'/>
+</mx:HBox>
+</mx:Application>

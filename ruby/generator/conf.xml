@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="GB2312" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Wangzw (HollyCRM inc.) -->
+<?xml-stylesheet type="text/xsl" href="H2Service.xslt"?>
+<H2Service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="H2Service.xsd">
+	<Service Name="106010001000" Description="主资料查询">
+		<Request MultiRecord="False">
+			<Field Name="业务类型" Ename="flag" DataType="String" Size="5" Format="" Required="True"/>
+			<Field Name="产品类型" Ename="type" DataType="String" Size="5" Format="" Required="True"/>
+			<Field Name="号码类型" Ename="ptype" DataType="String" Size="5" Format="" Required="True"/>
+		</Request>
+		<Response MultiRecord="False">
+			<Field Name="代表号码" DataType="String" Size="15" Format="" Required="True"/>
+			<Field Name="区域号码" DataType="String" Size="2" Format="" Required="True"/>
+			<Field Name="区域名称" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="产品类型" DataType="String" Size="3" Format="" Required="True"/>
+			<Field Name="产品名称" DataType="String" Size="50" Format="" Required="True"/>
+			<Field Name="逻辑号码" DataType="String" Size="15" Format="" Required="True"/>
+			<Field Name="物理号码" DataType="String" Size="15" Format="" Required="True"/>
+			<Field Name="付费类型" DataType="String" Size="3" Format="" Required="True"/>
+			<Field Name="资料状态" DataType="String" Size="3" Format="" Required="True"/>
+			<Field Name="所属交换机类型" DataType="String" Size="5" Format="" Required="True"/>
+			<Field Name="所属交换机地址" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="所属交换机名称" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="最后变更时间" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="彩铃标记" DataType="String" Size="2" Format="" Required="True"/>
+			<Field Name="集团彩铃编号" DataType="String" Size="10" Format="" Required="True"/>
+			<Field Name="PID(大灵通特有)" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="UID(大灵通特有)" DataType="String" Size="10" Format="" Required="True"/>
+			<Field Name="上网账号(含域名)" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="速率" DataType="String" Size="3" Format="" Required="True"/>
+			<Field Name="DUID(加密后的UID)" DataType="String" Size="5" Format="" Required="True"/>
+			<Field Name="IMSI" DataType="String" Size="20" Format="20" Required="True"/>
+		</Response>
+	</Service>
+	<Service Name="106010001010" Description="附属资料查询">
+		<Request MultiRecord="False">
+			<Field Name="业务类型" Ename="flag" DataType="String" Size="5" Format="" Required="True"/>
+			<Field Name="产品类型" Ename="type" DataType="String" Size="5" Format="" Required="True"/>
+			<Field Name="号码类型" Ename="ptype" DataType="String" Size="5" Format="" Required="True"/>
+		</Request>
+		<Response MultiRecord="True">
+			<Field Name="附属业务" DataType="String" Size="50" Format="" Required="True"/>
+			<Field Name="服输资料变更时间" DataType="String" Size="50" Format="" Required="True"/>
+			<Field Name="生效时间" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="失效时间" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="附属资料状态" DataType="String" Size="10" Format="" Required="True"/>
+		</Response>
+	</Service>
+		<Service Name="106010001020" Description="增值业务查询">
+		<Request MultiRecord="False">
+			<Field Name="业务类型" Ename="flag" DataType="String" Size="5" Format="" Required="True"/>
+			<Field Name="产品类型" Ename="type" DataType="String" Size="5" Format="" Required="True"/>
+			<Field Name="号码类型" Ename="ptype" DataType="String" Size="5" Format="" Required="True"/>
+		</Request>
+		<Response MultiRecord="True">
+			<Field Name="代表号码" DataType="String" Size="50" Format="" Required="True"/>
+			<Field Name="区域标识" DataType="String" Size="50" Format="" Required="True"/>
+			<Field Name="区域名称" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="业务类型" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="业务名称" DataType="String" Size="10" Format="" Required="True"/>
+			<Field Name="业务状态" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="业务编码" DataType="String" Size="20" Format="" Required="True"/>
+			<Field Name="最后变更时间" DataType="String" Size="10" Format="" Required="True"/>
+		</Response>
+	</Service>	
+</H2Service>

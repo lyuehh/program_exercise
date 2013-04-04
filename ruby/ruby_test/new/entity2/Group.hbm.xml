@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.www.entity">
+<class name='Group' table='groups'>
+  <id name="id">
+    <generator class="native"/>
+  </id>
+<property name='name'/>
+<property name='created_at' type='timestamp'/>
+<property name='updated_at' type='timestamp'/>
+
+    <set name='users'  table='users_groups'>
+      <key column='group_id'/>
+      <many-to-many class='User' column='user_id'/>
+    </set>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,10 @@
+def function
+  aa 
+  bb 
+  puts 34 + 43
+  puts 1.2322 - 3.4333 * 2345 / 945
+end
+function
+
+AA = 4
+BB = 5

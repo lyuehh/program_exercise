@@ -1,0 +1,2 @@
+Loading configuration file D:\Program Files\Adobe\Flex Builder 3\sdks\3.2.0\frameworks\flex-config.xml
+E:\Documents\Hello_Program\ruby_test\userful\read_tables_from_mysql\com\www\Book.swf (333008 bytes)

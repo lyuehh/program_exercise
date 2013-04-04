@@ -1,0 +1,10 @@
+(puts "ÓÃ·¨ : ruby #{$0} 'file1' 'file2' ";exit) if ARGV.empty?
+
+fileIn,fileOut = ARGV
+
+file1 = File.new(fileIn);
+file1.each do |line|
+  num += 1
+  print "#{num}: #{line}"
+end
+file1.close

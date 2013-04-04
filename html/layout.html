@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<style>
+			.main{
+				border:1px solid blue;
+				width:100%;
+				height:100%;	
+				border-collapse:collapse;
+			}
+			.left{
+				width:80%;
+				height:100%;
+				border:1px solid green;				
+			}
+			.right{				
+				hegith:100%;
+				border:1px solid red;			
+			}
+			.innerTable{				
+				width:100%;
+				height:100%;	
+				border-collapse:collapse;
+			}
+			.pinner{
+				height:120px;		
+				border:1px solid silver;
+			}
+			.autoheight{				 		
+				border:1px solid yellow;				
+			}
+		
+		</style>
+	</head>	
+	<body>
+		<table class="main">
+			<tr>
+				<td class="left" >1111</td>
+				<td class="right" >
+					<table class="innerTable">
+						<tr id="pinner" class="pinner" >
+							<td>
+								2222
+							</td>
+						</tr>	
+						<tr class="autoheight">
+							<td> 1</td>
+						</tr>	
+					</table>	
+				</td>
+			</tr>	
+		</table>
+	</body>	
+</html>	
