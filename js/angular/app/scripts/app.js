@@ -23,6 +23,14 @@ angular.module('todoApp', [])
         templateUrl: 'views/renren1.html',
         controller: 'RenRen1'
       })
+      .when('/renren2', {
+        templateUrl: 'views/renren2.html',
+        controller: 'RenRen2'
+      })
+      .when('/width', {
+        templateUrl: 'views/width.html',
+        controller: 'Width'
+      })
       .otherwise({
         redirectTo: '/'
       });
