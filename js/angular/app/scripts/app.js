@@ -27,6 +27,10 @@ angular.module('todoApp', [])
         templateUrl: 'views/renren2.html',
         controller: 'RenRen2'
       })
+      .when('/renren3', {
+        templateUrl: 'views/renren3.html',
+        controller: 'RenRen3'
+      })
       .when('/width', {
         templateUrl: 'views/width.html',
         controller: 'Width'

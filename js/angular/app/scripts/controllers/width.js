@@ -7,6 +7,18 @@ angular.module('todoApp').controller('Width', function() {
   window.a = a;
   window.$aa = $aa;
 
+
+  var aa = document.getElementById('aa');
+  if(aa.addEventListener) {
+    aa.addEventListener('click', function() {
+      alert('aa');
+    }, false);
+  } else {
+    aa.attachEvent('onclick', function() {
+      alert('aa');
+    });
+  }
+
   /*
   console.log('offsetHeight: ' + a.offsetHeight);
   console.log('offsetWidth: ' + a.offsetWidth);
