@@ -8,15 +8,16 @@
   <ul>
     <li>xxx</li><li>test2</li><li>test3</li>
   </ul>
-  <li></li>
-  <li></li>
-  <li></li>
 
    <img src="foo.png" alt="uu" />
    <div>aa</div>
-   <div id="bb" class="aa" name="a">xxx</div>
+   <div id="bb" class="aa">xxx</div>
 
-   p>{Click }+a{here}+{ to continue}
+   <p>
+     Click 
+     <a href="aa">here</a>
+      to continue
+   </p>
 </body>
 
 <style type="text/css">
@@ -32,4 +33,15 @@
     lh
   }
 </style>
+<script type="text/javascript">
+  (function() {
+    this.aa = 'aa';
+    this.fun = function(a) {
+      console.log(a);
+    };
+    console.log(this);
+  })();
+  fun('aa');
+  console.log(aa);
+</script>
 </html>
