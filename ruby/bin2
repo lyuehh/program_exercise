@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+puts ENV['PATH'].split(':').inject([]){|a,b| a.push(Dir.entries(b))}.flatten.select{ |a| a != '.' && a != '..' }.sort
