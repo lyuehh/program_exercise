@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	
+</head>
+<body>
+	<form action="#" method="post">
+		<textarea name="xx" id="main" cols="30" rows="10"></textarea>
+	</form>
+	
+	<script type="text/javascript">
+	
+	window.onload = function () {
+	var obj = document.getElementById("main");
+	var items = ["keypress","click"];
+	
+	for (var i=0;i<items.length;i++) {
+		(function() {
+			var item = items[i];
+			obj["on" + item] = function () {
+				alert("Thank for you " + item);
+			};
+		})();
+	}
+	};
+	</script>
+</body>
+</html>

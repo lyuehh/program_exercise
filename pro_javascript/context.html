@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	
+</head>
+<body>
+	<form action="#" method="post">
+		<textarea name="xx" id="main" cols="30" rows="10"></textarea>
+	</form>
+	
+	<script type="text/javascript">
+	
+	window.onload = function() {
+	var obj = {
+		yes: function() {
+			this.val = true;
+		},
+		no: function() {
+			this.val = false;
+		}
+	};
+	alert(obj.val == null);
+	
+	obj.yes();
+	alert(obj.val == true);
+	
+	window.no = obj.no;
+	window.no();
+	
+	alert(obj.val == true);
+	alert(window.val == false);
+	};
+	</script>
+</body>
+</html>
