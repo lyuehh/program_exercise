@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8" />
+    <title>yahoo weather test</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="angular.js" type="text/javascript"></script>
+    <script src="underscore.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container" ng-controller="AppCtrl">
+  <div class="step">
+    <h2>1. 选择城市</h2>
+    <input ng-model="city" type="text">
+    <button class='btn btn-primary' ng-click="search(city)">查找</button>
+  </div>
+  <div class="step">
+    <h2>2. 得到woeid</h2>
+    <span>{{ city }}</span>
+    <span>{{ woeid }}</span>
+  </div>
+
+  <div class="step">
+    <h2>3. weather</h2>
+    <div ng-bind-html-unsafe="desc"></div>
+  </div>
+</div>
+</body>
+</html>
