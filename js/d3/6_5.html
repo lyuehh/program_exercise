@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+  <script src='http://examples.oreilly.com/0636920026938/d3/d3.v3.js'></script>
+  <style type='text/css'>
+
+  </style>
+</head>
+<body>
+  <script>
+    var w = 500;
+    var h = 500;
+    var padding = 1;
+    
+    var svg = d3.select('body')
+      .append('svg')
+      .attr('width', w)
+      .attr('height', h);
+    
+    var dataset = [
+                [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+                [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
+              ];
+    
+    svg.selectAll('circle')
+      .data(dataset)
+      .enter()
+      .append('circle')
+      .attr({
+        cx: function(d) {
+          return d[0];
+        },
+        cy: function(d) {
+          return d[1];
+        },
+        r: function(d) {
+          return Math.sqrt(h - d[1]);
+        }
+      });
+    
+    svg.selectAll('text')
+      .data(dataset)
+      .enter()
+      .append('text')
+      .text(function(d) {
+        return d[0] + ', ' + d[1];
+      })
+      .attr({
+        x: function(d) {
+          return d[0];
+        },
+        y: function(d) {
+          return d[1];
+        },
+        'font-family': 'sans-serif',
+        'font-size': '11px',
+        'fill': 'red'
+      });
+  </script>
+</body>
+</html>
