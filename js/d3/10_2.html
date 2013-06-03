@@ -64,7 +64,53 @@
       })
       .attr('fill', function(d) {
          return 'rgb(0, 0, ' + (d.value * 10) + ')';  
+      })
+      .on('click', function() {
+        sortBars();
+      })
+      .append('title')
+      .text(function(d, i) {
+        return 'The value is ' + d.value;
       });
+    
+    var sortOrder = false;
+    
+    function sortBars() {
+      sortOrder = !sortOrder;
+      svg.selectAll('rect')
+        .sort(function(a, b) {
+          if(sortOrder) {
+            return d3.ascending(a.value, b.value);
+          } else {
+            return d3.descending(a.value, b.value);
+          }
+        })
+        .transition()
+        .delay(function(d, i) {
+          return i * 50;
+        })
+        .duration(1000)
+        .attr('x', function(d, i) {
+          return xScale(i);
+        });
+        // FIXME there is a bug..
+      svg.selectAll('text')
+        .sort(function(a, b) {
+          if(sortOrder) {
+            return d3.ascending(a.value, b.value);
+          } else {
+            return d3.descending(a.value, b.value);
+          }
+        })
+        .transition()
+        .delay(function(d, i) {
+          return i * 50;
+        })
+        .duration(1000)
+        .attr('x', function(d, i) {
+          return xScale(i) + xScale.rangeBand() / 2
+        });
+    }
     
     svg.selectAll('text')
       .data(dataset, function(d) { return d.key; })

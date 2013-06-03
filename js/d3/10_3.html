@@ -64,7 +64,69 @@
       })
       .attr('fill', function(d) {
          return 'rgb(0, 0, ' + (d.value * 10) + ')';  
+      })
+      .on('click', function() {
+        sortBars();
+      })
+      .on('mouseover', function(d, i) {
+        var x = parseFloat(d3.select(this).attr('x')) + xScale.rangeBand() / 2;
+        var y = parseFloat(d3.select(this).attr('y')) + 30;
+        
+        svg.append('text')
+          .attr('id', 'tooltip')
+          .attr('x', x)
+          .attr('y', y)
+          .attr("text-anchor", "middle")
+          .attr("font-family", "sans-serif")
+          .attr("font-size", "11px")
+          .attr("font-weight", "bold")
+          .attr("fill", "white")
+          .text(d.value);
+      })
+      .on('mouseout', function() {
+        svg.select('#tooltip').remove();
       });
+    
+    var sortOrder = false;
+    
+    function sortBars() {
+      sortOrder = !sortOrder;
+
+      svg.selectAll('text')
+        .sort(function(a, b) {
+          if(sortOrder) {
+            return d3.ascending(a && a.value, b && b.value);
+          } else {
+            return d3.descending(a && a.value, b && b.value);
+          }
+        })
+        .transition()
+        .delay(function(d, i) {
+          return i * 50;
+        })
+        .duration(1000)
+        .attr('x', function(d, i) {
+          return xScale(i) + xScale.rangeBand() / 2
+        });
+
+      svg.selectAll('rect')
+        .sort(function(a, b) {
+          if(sortOrder) {
+            return d3.ascending(a.value, b.value);
+          } else {
+            return d3.descending(a.value, b.value);
+          }
+        })
+        .transition()
+        .delay(function(d, i) {
+          return i * 50;
+        })
+        .duration(1000)
+        .attr('x', function(d, i) {
+          return xScale(i);
+        });
+      
+    }
     
     svg.selectAll('text')
       .data(dataset, function(d) { return d.key; })
