@@ -1,7 +1,11 @@
 node_modules
+components
 *.mp3
 words
 words_md5
 *.beam
 *.~
 a.out
+*.db
+*.png
+*.gif
