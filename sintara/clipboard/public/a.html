@@ -1,29 +1,29 @@
 <div>
 <ul class="write_tips pic_tabs">
     <li class="write_tips_current pic_tab" id="pic_local" data-id="pic_area_local" data-cls="pic_area">
-        本地图片
+        <%= loc_pic %>
     </li>
     <li class="pic_tab" id="pic_net" data-id="pic_area_net"  data-cls="pic_area">
-        网络图片
+        <%= net_pic %>
     </li>
 </ul>
 <div>
 <div id="pic_area_local" class="pic_area">
-    <p>点击“浏览”，在您电脑中选择要上传的图片，每张图片上传完毕后将会自动添加到正文中。</p>
-    <form enctype="multipart/form-data" target="file_upload_ifr" method="post" action="./nginx-upload?X-Progress-ID=1374118302262" id="pic_local_form" name="pic_local_form">
-        <input type="file" name="pic_local" multiple="multiple">
+    <p><%= pic_info1 %></p>
+    <form enctype="multipart/form-data" target="file_upload_ifr" method="post" action="" id="pic_local_form" name="pic_local_form">
+        <input type="file" name="pic_local" multiple="multiple" id="pic_local_ipt">
         <div class="btn_config">
-            <input type="button" value="取消" class="pic_close">
-            <input type="button" value="下一步" class="pic_preview yes" onclick="pic_local_form.submit();">
+            <input type="button" value="<%= ok %>" class="pic_preview yes">
+            <input type="button" value="<%= cancel %>" class="pic_close">
         </div>
     </form>
 </div>
 <div id="pic_area_net"  class="pic_area" style="display:none;">
-    <p>请在输入框里面填上要添加图片的URL。</p>
-    <input type="text" name="pic_net" id="">
+    <p><%= pic_info2 %></p>
+    <input type="text" name="pic_net" id="pic_net_ipt">
     <div class="btn_config">
-        <input type="button" value="取消" class="pic_close">
-        <input type="button" value="确定" class="pic_net_insert yes">
+        <input type="button" value="<%= ok %>" class="pic_net_insert yes">
+        <input type="button" value="<%= cancel %>" class="pic_close">
     </div>
 </div>
 </div>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Script-Type" content="text/javascript">
+        <title>(How to Write a (Lisp) Interpreter (in JavaScript))</title>
+        <script type="text/javascript" src="lispy.js"></script>
+    </head>
+    <body>
+        <form id="repl" name="repl" action="parse(prompt.value)">
+			lisp==&gt;
+			<input id="prompt" size="200" value="" name="prompt" maxlength="512">
+			<br>
+			<input type=button style="width:60px;height:30px" name="btnEval" value="eval" onclick="debug(prompt.value)">
+			<br>
+        </form>
+		<div id="debugdiv" style="background-color:orange;width=100px;height=20px">
+		Hello to Debug
+		</div>
+    </body>
+</html>
