@@ -1,0 +1,3 @@
+#lang racket
+(printf "aa")
+
