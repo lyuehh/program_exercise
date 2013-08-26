@@ -6,8 +6,8 @@
 require "rubygems"
 require 'oauth'
 require 'oauth/consumer'
-api_key = "0bfdd973a30023c923f98c5ae9006b5b"
-api_key_secret = "e1175615d659ea53"
+api_key = ""
+api_key_secret = ""
 @consumer=OAuth::Consumer.new(
                                 api_key, 
                                 api_key_secret, 

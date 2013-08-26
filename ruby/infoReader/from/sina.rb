@@ -21,8 +21,8 @@ module From
 		end
 		
 		def login
-			sina_api_key = "635628042"
-			sina_api_secret = "4ab48f747b5bed95dccc56307a18df10"
+			sina_api_key = ""
+			sina_api_secret = ""
 			
 			consumer = OAuth::Consumer.new(
 				sina_api_key,
