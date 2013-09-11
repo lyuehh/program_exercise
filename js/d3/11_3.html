@@ -10,8 +10,8 @@
 </head>
 <body>
   <script>
-    var w = 300;
-    var h = 300;
+    var w = 1200;
+    var h = 800;
     
     var dataset = {
         nodes: [
@@ -62,7 +62,7 @@
       .enter()
       .append('line')
       .style('stroke', '#ccc')
-      .style('stroke-width', 0);
+      .style('stroke-width', 1);
     
     var nodes = svg.selectAll('circle')
       .data(dataset.nodes)
