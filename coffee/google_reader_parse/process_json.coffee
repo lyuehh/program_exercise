@@ -2,8 +2,6 @@ starred = require './starred.json'
 fs = require 'fs'
 _ = require 'underscore'
 tpl = fs.readFileSync('./post.tpl','utf8')
-Bagpipe = require('bagpipe')
-bagpipe = new Bagpipe(5)
 
 paid2 = (s) ->
     return if (s + '').length < 2  then ('00' + s).slice(1) else s
@@ -42,13 +40,6 @@ for s in starred.items
         filepath = './posts/' + filename + '-' + (s.title && formatTitle(s.title)) + '.markdown'
         content = _.template(tpl, obj)
         fs.writeFileSync(filepath, content)
-        """
-        bagpipe.push(fs.writeFile, filepath, content, (err, data) ->
-            console.log err
-            console.log 1
-            process.exit(0)
-        )
-        """
     catch e
         console.log e
         console.log 2

@@ -9,3 +9,5 @@ a.out
 *.db
 *.png
 *.gif
+*~
+*.beam

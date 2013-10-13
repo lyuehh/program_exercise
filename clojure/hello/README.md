@@ -1,13 +1,13 @@
 # hello
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to test ..
 
 ## Usage
 
-FIXME
+todo..
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 lyuehh
 
 Distributed under the Eclipse Public License, the same as Clojure.
