@@ -1,7 +1,7 @@
 /*
-** ¹¦ÄÜ£º<%= description %>  <%= name %>
-** ´´½¨£ºwangweiwei
-** Ê±¼ä£º<%= Time.new %>
+** åŠŸèƒ½ï¼š<%= description %>  <%= name %>
+** åˆ›å»ºï¼šwangweiwei
+** æ—¶é—´ï¼š<%= Time.new %>
 */
 #include "allof.h"
 #include "general.flds.h"
@@ -57,8 +57,8 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 	int pkg_length,pkg_count,pkg_len,rec_len;
 	<% end %>
 
-	/* ·şÎñÇëÇó²ÎÊı */
-	char phone_no[20+1]; /*ÓÃ»§ºÅÂë*/
+	/* æœåŠ¡è¯·æ±‚å‚æ•° */
+	char phone_no[20+1]; /*ç”¨æˆ·å·ç */
 	
 	<% req_fields.each_with_index { |f,i| %>
 	char <%= f.ename %>[<%= f.size %>+1]; /* <%= f.name %> */
@@ -84,7 +84,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 	signal(SIGALRM, cust_alarm);
 	alarm(TIMEOUT);
 	
-	/***´¦ÀíÇëÇóĞÅÏ¢*****/	
+	/***å¤„ç†è¯·æ±‚ä¿¡æ¯*****/	
 	memset((char *)&cust_head_req,0,sizeof(cust_head_req));
 	memset(phone_no,0,sizeof(phone_no));	
 	memcpy((char *)&cust_head_req,recv_pkg,	CUST_HEAD_LEN);
@@ -95,7 +95,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 	strncpy(flag,recv_pkg+CUST_HEAD_LEN,5);
 	sscanf(flag,"%s",flag);
 	
-	/* ÕâÀïĞèÒªĞŞ¸Ä !!! */
+	/* è¿™é‡Œéœ€è¦ä¿®æ”¹ !!! */
 	<% req_fields.each { |f| %>
 	memset(<%= f.ename %>,0,sizeof(<%= f.ename %>));
 	strncpy(<%= f.ename %>,recv_pkg+CUST_HEAD_LEN,<%= f.size %>);
@@ -104,7 +104,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 	<% } %>
 	//app_debug("\n\n%08d|=======PhoneType=[%s],on_off_flag=[%s],op_time=[%s]=========\n",22,PhoneType,on_off_flag,op_time);
 	
-	memset((char *)&cust_head_rsp,0,sizeof(cust_head_rsp));     /*****¿½±´°üÍ·ĞÅÏ¢£¬È»ºóÖØÖÃ****/
+	memset((char *)&cust_head_rsp,0,sizeof(cust_head_rsp));     /*****æ‹·è´åŒ…å¤´ä¿¡æ¯ï¼Œç„¶åé‡ç½®****/
 	memcpy((char *)&cust_head_rsp,recv_pkg,CUST_HEAD_LEN);
 	
 	app_debug("%08d|%.12s received pkg [%d][%s] \n", pid, cust_head_req.srv_type, recv_len,recv_pkg);
@@ -118,7 +118,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 	
 	memset(error_code, 0, sizeof(error_code));
 	
-	/**´ò¿ªÖĞ¼ä¼şÁ¬½Ó***/
+	/**æ‰“å¼€ä¸­é—´ä»¶è¿æ¥***/
 	/***tuxedo input_paras*************/
 	memset(srv_name, 0, sizeof(srv_name));
 	strcpy(srv_name,"sProdOfferQry");  
@@ -141,7 +141,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 	app_debug("%08d|%.12s srv_name[%s] \n", pid, cust_head_req.srv_type,srv_name);
 	
 	
-	/* ÏÔÊ¾ÊäÈë²ÎÊı */
+	/* æ˜¾ç¤ºè¾“å…¥å‚æ•° */
 	for (i=0; i<input_num; i++)
 	{
 		for (j=0; j<input_count[i]; j++)
@@ -154,7 +154,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 	}
 	
 	
-	/*ÒÔFML32·½Ê½µ÷ÓÃÖĞ¼ä¼ş·şÎñ£¬´ÓÖĞ¼ä¼ş·şÎñÖĞ½ÓÊÜ·µ»ØÖµ*****/
+	/*ä»¥FML32æ–¹å¼è°ƒç”¨ä¸­é—´ä»¶æœåŠ¡ï¼Œä»ä¸­é—´ä»¶æœåŠ¡ä¸­æ¥å—è¿”å›å€¼*****/
 	
 	
 	ret=Tpcall32(srv_name, input_num, input_count, input_para, output_num, output_count, output_para, output_msg);
@@ -168,7 +168,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 	}
 	else
 	{
-		/*tuxedo ³É¹¦ */
+		/*tuxedo æˆåŠŸ */
 		for (i=0; i<output_num; i++)
 		{
 			for (j=0; j<output_count[i]; j++)
@@ -189,8 +189,8 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 			
 			<% if multi == "False" %>
 			
-			/***´¦Àí½ÓÊÕÊı¾İ£¬´ò°ü·¢ËÍ*******/
-			/***Êı¾İ°üÌå³¤¶È =×Ö¶Î¸öÊı(×Ö¶ÎÖ®¼ä+tab¼ü)+Ã¿¸ö²ÎÊı³¤¶È*****/
+			/***å¤„ç†æ¥æ”¶æ•°æ®ï¼Œæ‰“åŒ…å‘é€*******/
+			/***æ•°æ®åŒ…ä½“é•¿åº¦ =å­—æ®µä¸ªæ•°(å­—æ®µä¹‹é—´+tabé”®)+æ¯ä¸ªå‚æ•°é•¿åº¦*****/
 			len = <%= rsp_fields.size %>+<% rsp_fields.each_with_index { |f,i| %><%= f.size %><% if i != rsp_fields.size-1 %>+<% end %><% } %>;
 			
 			len = len + CUST_HEAD_LEN;	
@@ -205,9 +205,9 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 			pkg_head = send_tmp;
 			pkg_body = send_tmp + CUST_HEAD_LEN;
 			
-			/***´¦Àí·µ»Ø°üÌå×Ö¶Î Ó¦´ğÎŞ°üÌå*****/	
+			/***å¤„ç†è¿”å›åŒ…ä½“å­—æ®µ åº”ç­”æ— åŒ…ä½“*****/	
 			
-			/* ÕâÀïĞèÒªĞŞ¸Ä!!! */
+			/* è¿™é‡Œéœ€è¦ä¿®æ”¹!!! */
 			<% rsp_fields.each_with_index { |f,i| %>
 			write_fields(pkg_body, <%= f.size %>, output_para[<%= i %>][0]);   /* <%= f.name %> */
 			pkg_body=pkg_body+<%= f.size %>+1;
@@ -217,7 +217,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 			*pkg_body = SUB;
 			*(pkg_body+1) = 0;
 			
-			/**´¦Àí°üÍ·****/
+			/**å¤„ç†åŒ…å¤´****/
 			len = pkg_body - pkg_head +1;
 			memset(buf, 0, sizeof(buf));
 			sprintf(buf, "%d", len);
@@ -226,14 +226,14 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 			write_field(cust_head_rsp.pkg_code, 5, "1");
 			write_field(cust_head_rsp.pkg_flag, 1, "1");
 			write_field(cust_head_rsp.error_code, 5, "00000");
-			/****°ü***********/
+			/****åŒ…***********/
 			strncpy(send_tmp, (char *)&cust_head_rsp, CUST_HEAD_LEN);
 			
 			<% else %>
 			
 			rec_len = <%= rsp_fields.size %>+<% rsp_fields.each_with_index { |f,i| %><%= f.size %><% if i != rsp_fields.size-1 %>+<% end %><% } %>;
-			len = output_count[0]*rec_len;                /***ËùÓĞ¼ÇÂ¼³¤¶È*****/			
-			len = (len/CUST_BODY_LEN +1)*CUST_HEAD_LEN +len; /***¼Ó°üÍ·****/
+			len = output_count[0]*rec_len;                /***æ‰€æœ‰è®°å½•é•¿åº¦*****/			
+			len = (len/CUST_BODY_LEN +1)*CUST_HEAD_LEN +len; /***åŠ åŒ…å¤´****/
 
 
 			if ((send_tmp = (char *)malloc((len+10)*sizeof(char))) == NULL)
@@ -252,7 +252,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 
 			for (j=0; j<output_count[0]; j++)
 			{
-				/***´¦ÀíÒ»¸ö¼ÇÂ¼*****/
+				/***å¤„ç†ä¸€ä¸ªè®°å½•*****/
 				
 				<% rsp_fields.each_with_index { |f,i| %>
 				write_fields(pkg_body, <%= f.size %>, output_para[<%= i %>][0]);   /* <%= f.name %> */
@@ -263,18 +263,18 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 
 				
 				if (((pkg_body-pkg_head+rec_len+1) > CUST_PKG_LEN) && ( j<output_count[0]-1))
-				{/*** ºóÃæ»¹ÓĞ¼ÇÂ¼*****/
+				{/*** åé¢è¿˜æœ‰è®°å½•*****/
 					#ifdef TEST
 					app_debug("%08d|%.12s records continue. pkg_count[%d]\n", pid, cust_head_rsp.srv_type, pkg_count);
 					#endif
 					*pkg_body = SUB;
-					/***°üÍ·****/
+					/***åŒ…å¤´****/
 					pkg_len = pkg_body - pkg_head+1;
-					memset(buf, 0, sizeof(buf));            /****°ü³¤****/
+					memset(buf, 0, sizeof(buf));            /****åŒ…é•¿****/
 					sprintf(buf, "%d", pkg_len);
 					write_field(cust_head_rsp.pkg_length, 5, buf);
 					write_field(cust_head_rsp.cmd_flag,1,"1");
-					memset(buf, 0, sizeof(buf));				/***µÚ¼¸°ü****/
+					memset(buf, 0, sizeof(buf));				/***ç¬¬å‡ åŒ…****/
 					sprintf(buf, "%d", pkg_count);
 					write_field(cust_head_rsp.pkg_code, 5, buf);
 					write_field(cust_head_rsp.pkg_flag, 1, "0");
@@ -295,13 +295,13 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 					#endif
 					*pkg_body = SUB;
 					*(pkg_body + 1) = 0;
-					/***°üÍ·****/
+					/***åŒ…å¤´****/
 					pkg_len = pkg_body - pkg_head+1;
-					memset(buf, 0, sizeof(buf));            /****°ü³¤****/
+					memset(buf, 0, sizeof(buf));            /****åŒ…é•¿****/
 					sprintf(buf, "%d", pkg_len);
 					write_field(cust_head_rsp.pkg_length, 5, buf);
 					write_field(cust_head_rsp.cmd_flag,1,"1");
-					memset(buf, 0, sizeof(buf));				/***µÚ¼¸°ü****/
+					memset(buf, 0, sizeof(buf));				/***ç¬¬å‡ åŒ…****/
 					sprintf(buf, "%d", pkg_count);
 					write_field(cust_head_rsp.pkg_code, 5, buf);
 					write_field(cust_head_rsp.pkg_flag, 1, "1");
@@ -346,13 +346,13 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 			write_field(cust_head_rsp.pkg_code, 5, "1");
 			write_field(cust_head_rsp.pkg_flag, 1, "1");
 			
-			/* ¸ù¾İ·µ»ØÀàĞÍÀ´È·ÈÏ·µ»ØµÄ²»Í¬´íÎó´úÂë */
-			/* ÕâÀïĞèÒªĞŞ¸Ä!!! */
+			/* æ ¹æ®è¿”å›ç±»å‹æ¥ç¡®è®¤è¿”å›çš„ä¸åŒé”™è¯¯ä»£ç  */
+			/* è¿™é‡Œéœ€è¦ä¿®æ”¹!!! */
 			if (!strcmp(output_msg[0], "108000"))
 			{
 				sprintf(error_code, "%s", "00215");
 			}
-			else if (!strcmp(output_msg[0], "000001"))/*ÓÃ»§µµ°¸²»´æÔÚ*/
+			else if (!strcmp(output_msg[0], "000001"))/*ç”¨æˆ·æ¡£æ¡ˆä¸å­˜åœ¨*/
 			{
 				sprintf(error_code, "%s", "00101");
 			}
@@ -384,7 +384,7 @@ int cust_<%= name %>(char *recv_pkg, int recv_len, char **send_pkg, int *send_le
 			free(output_para[i][j]);
 		}
 	}
-	/* ¹Ø±ÕÖĞ¼ä¼şÁ¬½Ó */
+	/* å…³é—­ä¸­é—´ä»¶è¿æ¥ */
 	Tpterm();
 	alarm(0);
 	app_debug("%08d|%.12s pkg_len[%d] sent pkg [%d][%s]\n", pid, cust_head_rsp.srv_type, *send_len, strlen(*send_pkg), *send_pkg);
