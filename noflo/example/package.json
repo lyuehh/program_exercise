@@ -1,0 +1,10 @@
+{
+  "name": "my-noflo-example-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "noflo": "~0.4.0",
+    "noflo-core": "~0.1.1",
+    "noflo-filesystem": "~1.0.0",
+    "noflo-math": "0.0.1"
+  }
+}
