@@ -218,5 +218,11 @@ var global = this;
         var p1 = new Person();
         console.log(p1.name);
 
+        // isPrototypeOf es3
+        console.log(Person.prototype.isPrototypeOf(p1));
+
+        // getPrototypeOf es5
+        console.log(Object.getPrototypeOf(p1) === Person.prototype);
+
     })();
 })();
