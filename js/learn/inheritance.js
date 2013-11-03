@@ -97,4 +97,102 @@
         i2.sayAge();
     })();
 
+    // 6.3.4 prototype inheritance
+    (function() {
+        function object(o) {
+            function F() {}
+            F.prototype = o;
+            return new F();
+        }
+        var person = {
+            name: "person1",
+            friends: ['a', 'b', 'c']
+        };
+        var p1 = object(person);
+        p1.name = 'p1';
+        p1.friends.push('d');
+
+        var p2 = object(person);
+        p2.name = 'p2';
+        p2.friends.push('e');
+        console.log(person.friends);
+        console.log(p1.friends);
+        console.log(p2.friends);
+
+        // like Object.create() in es5
+    })();
+
+    // 6.3.5 parasitic inheritance
+    (function() {
+
+        function object(o) {
+            function F() {}
+            F.prototype = o;
+            return new F();
+        }
+        function createAnother(original) {
+            var clone = object(original);
+            clone.sayHi = function() {
+                console.log('hi');
+            };
+            return clone;
+        }
+        var person = {
+            name: "person",
+            friends: ['a', 'b',' c']
+        };
+        var p1 = createAnother(person);
+        p1.sayHi();
+    })();
+
+    // 6.3.6 parasitic combination inheritance
+    (function() {
+        function SuperType(name) {
+            this.name = name;
+            this.colors = ['red', 'blue', 'green'];
+        }
+        SuperType.prototype.sayName = function() {
+            console.log(this.name);
+        };
+        function SubType(name, age) {
+            SuperType.call(this, name);
+            this.age = age;
+        }
+        SubType.prototype = new SuperType();
+        SubType.prototype.constructor = SubType;
+        SubType.prototype.sayAge = function() {
+            console.log(this.age);
+        };
+    })();
+
+    // 6.3.6 2
+    (function() {
+        function object(o) {
+            function F() {}
+            F.prototype = o;
+            return new F();
+        }
+        function inheritPrototype(subtype, supertype) {
+            var prototype = object(supertype.prototype);
+            prototype.constructor = subtype;
+            subtype.prototype = prototype;
+        }
+        function SuperType(name) {
+            this.name = name;
+            this.colors = ['red', 'blue', 'green'];
+        }
+        SuperType.prototype.sayName = function() {
+            console.log(this.name);
+        };
+        function SubType(name, age) {
+            SuperType.call(this, name);
+            this.age = age;
+        }
+        inheritPrototype(SubType, SuperType);
+        SubType.prototype.sayAge = function() {
+            console.log(this.age);
+        };
+    })();
+
+
 })();
