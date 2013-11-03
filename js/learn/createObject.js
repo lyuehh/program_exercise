@@ -275,7 +275,7 @@ var global = this;
             job: "aaa"
         };
         var p2 = new Person2();
-        console.log(p2.constructor === Person2); // false, if you need this, try
+        console.log(p2.constructor === Person2); // true
 
         // but with this, it's constructor [[ Enumerable ]] will be true, but by default, it's false
         // but use es5, you can define this with
@@ -298,7 +298,7 @@ var global = this;
         };
         //p3.sayName(); // Error, p3内部的prototype的指针被重写了。
         var p4 = new Person3();
-        p4.sayName(); // this is ok
+        p4.sayName(); // this is ok, xx
     })();
 
     // combineation constructor and prototype
@@ -318,5 +318,59 @@ var global = this;
         var p1 = new Person();
         var p2 = new Person();
         console.log(p1.friends === p2.friends); // false
+
+        // dynamic prototype pattern
+        function Person2(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+
+            if (typeof this.sayName !== 'function') {
+                Person2.prototype.sayName = function() {
+                    console.log(this.name);
+                };
+            }
+        }
+
+        var p3 = new Person2('p2');
+        p3.sayName(); // log p2
     })();
+
+    // 6.2.6 parasitic constructor pattern
+    // not recommend
+    (function() {
+        function Person(name, age, job) {
+            var o = {};
+            o.name = name;
+            o.age = age;
+            o.job = job;
+            o.sayName = function() {
+                console.log(this.name);
+            };
+            return o;
+        }
+        var p1 = new Person('person1', 10, 'haha');
+        p1.sayName();
+    })();
+
+    // 6.2.7 durable constructor pattern
+    (function() {
+        function Person(name, age, job) {
+            var o = {};
+            var name1 = name;
+            var age1 = age;
+            var job1 = job;
+            o.sayName = function() {
+                console.log(name1);
+            };
+            return o;
+        }
+
+        // var p1 = Person('p1', 10, 'xx');
+        // p1.sayName();
+
+        // var p2 = new Person('p1', 10, 'xx');
+        // p2.sayName();
+    })();
+
 })();
