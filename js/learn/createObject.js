@@ -207,6 +207,8 @@ var global = this;
 
     // 6.2.3 prototype pattern
     // page 184(en), 147(cn)
+    // bad: if the attribute in prototype is ref, like array, then this will be share in all instances,
+    // if you don't want this, then do not use this
     (function() {
         function Person() {}
         Person.prototype.name = 'n1';
@@ -224,5 +226,97 @@ var global = this;
         // getPrototypeOf es5
         console.log(Object.getPrototypeOf(p1) === Person.prototype);
 
+        // hasOwnProperty es3
+        var p2 = new Person();
+        console.log(p2.hasOwnProperty('name'));
+        var p3 = new Person();
+        p3.name = 'p3';
+        console.log(p3.hasOwnProperty('name'));
+
+        // in es3
+        console.log('name' in p2);
+        console.log('name' in p3);
+
+        // ie8及以前的版本中，屏蔽不可枚举属性的实例属性不会出现在for in循环中
+        // 改bug 影响 hasownproperty, propertyIsEnumerable(), toLocaleString(), toString(), valueOf()
+        var o = {
+            toString: function() {
+                return 'a object';
+            }
+        };
+        for (var i in o) {
+            if (i == 'toString') {
+                console.log('found toString'); // not show in ie8 及以前版本
+            }
+        }
+
+        // Object.keys() es5
+        // Object.getOwnPropertyNames() es5
+    })();
+
+    // alternate prototype syntax
+    // page 193(en) 154(cn)
+    (function() {
+        function Person() {}
+
+        Person.prototype = {
+            name: "xx",
+            age: 10,
+            job: "aaa"
+        };
+        var p1 = new Person();
+        console.log(p1.constructor === Person); // false, if you need this, try
+
+        function Person2() {}
+        Person.prototype = {
+            constructor: Person2,
+            name: "xx",
+            age: 10,
+            job: "aaa"
+        };
+        var p2 = new Person2();
+        console.log(p2.constructor === Person2); // false, if you need this, try
+
+        // but with this, it's constructor [[ Enumerable ]] will be true, but by default, it's false
+        // but use es5, you can define this with
+        Object.defineProperty(Person2.prototype, 'constructor', {
+            enumerable: false,
+            value: Person2
+        });
+
+        // rewrite protype, will be error
+        function Person3() {}
+
+        var p3 = new Person3();
+        Person3.prototype = {
+            constructor: Person3,
+            name: "xx",
+            age: 11,
+            sayName: function() {
+                console.log(this.name);
+            }
+        };
+        //p3.sayName(); // Error, p3内部的prototype的指针被重写了。
+        var p4 = new Person3();
+        p4.sayName(); // this is ok
+    })();
+
+    // combineation constructor and prototype
+    // page 197(en) 159(cn)
+    (function() {
+        function Person(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.friends = ['a', 'b'];
+        }
+
+        Person.prototype.sayName = function() {
+            console.log(this.name);
+        };
+
+        var p1 = new Person();
+        var p2 = new Person();
+        console.log(p1.friends === p2.friends); // false
     })();
 })();
