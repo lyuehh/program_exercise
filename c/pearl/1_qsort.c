@@ -15,7 +15,6 @@ int main(int argc, const char *argv[])
     while(scanf("%d", &a[n]) != EOF) {
         n++;
     }
-    printf("----\n");
     qsort(a, n, sizeof(int), cmp);
     for (i=0; i<n; i++) {
         printf("%d\n", a[i]);
