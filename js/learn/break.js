@@ -3,7 +3,7 @@
 var num = 0;
 outer:
     for (var i = 0, l = 10; i < l; i ++) {
-        for (var j = 0, l = 10; j < l; j ++) {
+        for (var j = 0, ll = 10; j < ll; j ++) {
             if (i === 5 && j === 5) {
                 break outer;
             }
