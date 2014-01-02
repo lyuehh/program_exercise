@@ -13,7 +13,7 @@ console.log(
   foo.bar(),
   (foo.bar)(),
   (foo.bar = foo.bar)(),
-  (foo.bar, foo.bar)()
+  (2, foo.bar)()
 );
 
 // 2
