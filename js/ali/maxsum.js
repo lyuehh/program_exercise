@@ -18,3 +18,6 @@ function maxsum(arr) {
 }
 
 console.log(maxsum(arr));
+
+var arr2 = [3, -1, 4, -2, -10, 9, 0, -3];
+console.log(maxsum(arr2));
