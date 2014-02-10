@@ -1,4 +1,4 @@
-files = ["./34.txt"]
+files = ["./201308-201312.txt"]
 
 files.each do |y|
     file  = y

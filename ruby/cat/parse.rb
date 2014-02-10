@@ -18,22 +18,31 @@ def get_src(doc)
     imgs_with_out_ads
 end
 
-dates = (201301..201308).to_a
+dates = (201308..201312).to_a
 year = 2013
 
 dates.each do |f|
     f1 = "./#{year}/#{f}.html"
     f2 = "./#{year}/#{f}-1.html"
     f3 = "./#{year}/#{f}-2.html"
+    f4 = "./#{year}/#{f}-3.html"
+    f5 = "./#{year}/#{f}-4.html"
+
     doc1 = Nokogiri::HTML(File.read(f1))
     doc2 = Nokogiri::HTML(File.read(f2))
     doc3 = Nokogiri::HTML(File.read(f3))
+    doc4 = Nokogiri::HTML(File.read(f4))
+    doc5 = Nokogiri::HTML(File.read(f5))
 
     imgs1 = get_src(doc1)
     imgs2 = get_src(doc2)
     imgs3 = get_src(doc3)
+    imgs4 = get_src(doc4)
+    imgs5 = get_src(doc5)
 
     puts imgs1
     puts imgs2
     puts imgs3
+    puts imgs4
+    puts imgs5
 end
