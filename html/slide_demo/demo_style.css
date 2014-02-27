@@ -1,0 +1,68 @@
+
+    /* Prevent the slideshow from flashing on load */
+    #slides {
+      display: none;
+      position: relative;
+    }
+    #slides .slidesjs-pagination {
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      z-index: 900;
+      padding: 0;
+      margin: 0;
+      width: 336px;
+    }
+    #slides .slidesjs-toggle-left {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 910;
+      padding: 0;
+      margin: 0;
+   }
+   #slides .slidesjs-toggle-right {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      z-index: 910;
+      padding: 0;
+      margin: 0;
+   }
+
+    #slides .slidesjs-pagination li,
+    #slides .slidesjs-toggle-left li,
+    #slides .slidesjs-toggle-right li {
+      display: inline-block;
+      /*border: 1px solid red;*/
+    }
+
+    #slides .slidesjs-pagination li a,
+    #slides .slidesjs-toggle-left li a,
+    #slides .slidesjs-toggle-right li a
+     {
+      text-decoration: none;
+      display: inline-block;
+      background-color: #a6a6a6;
+      border: 1px solid #d1d1d1;
+      color: #ffffff;
+      text-align: center;
+      width: 21px;
+      height: 20px;
+      margin-right:  1px;
+    }
+
+    #slides .slidesjs-pagination .active {
+      background-color: red;
+    }
+
+    /* Center the slideshow */
+    .container {
+      margin: 0 auto;
+      width: 236px;
+      height: 137px;
+    }
+
+    #slides .slidesjs-previous, #slides .slidesjs-next {
+      display: none;
+    }
