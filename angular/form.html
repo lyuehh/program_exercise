@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src="jquery.js"></script>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <form name="test_form" ng-controller="TestCtrl">
+        <input type="text" name="a" required ng-model="a"  />
+        <input type="text" name="b" required ng-model="b" ng-minlength="2" ng-pattern="/abc/" />
+        <span ng-click="see()">{{ test_form.$valid }}</span>
+    </form>
+
+    <form name="test_form" ng-controller="TestCtrl2">
+        <input type="checkbox" name="a" ng-model="a" ng-true-value="AA" ng-false-value="BB" />
+        <span>{{ a }}</span>
+    </form>
+
+    <form name="test_form" ng-controller="TestCtrl3">
+        <input type="radio" name="a" ng-model="a" value="AA" />
+        <input type="radio" name="a" ng-model="a" value="BB" />
+        <span>{{ a }}</span>
+    </form>
+
+    <script src="form.js"></script>
+</body>
+</html>
