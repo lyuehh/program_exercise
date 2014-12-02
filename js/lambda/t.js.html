@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Documents/t.js.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="jquery">
+<meta name="settings" content="use_css,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="solarized">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #77a5b1; background-color: #002b36; }
+body { font-family: monospace; color: #77a5b1; background-color: #002b36; }
+* { font-size: 1em; }
+.jsParens { color: #005f78; }
+.Statement { color: #719e07; }
+.Type { color: #b58900; font-weight: bold; }
+.Identifier { color: #268bd2; }
+.Comment { color: #52737b; font-style: italic; }
+.Constant { color: #00bce0; }
+.Special { color: #dc322f; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="Comment">/*</span>
+<span class="Comment">function a(f) {</span>
+<span class="Comment">    return function(x) {</span>
+<span class="Comment">        return f(x);</span>
+<span class="Comment">    };</span>
+<span class="Comment">}</span>
+<span class="Comment">a(function(x) {})(0);</span>
+<span class="Comment">*/</span>
+
+<span class="jsParens">(</span><span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+  <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span>x<span class="jsParens">)</span><span class="jsParens">;</span>
+  <span class="jsParens">}</span><span class="jsParens">;</span>
+<span class="jsParens">}</span><span class="jsParens">)</span><span class="jsParens">;</span>
+
+add1 <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> n <span class="Statement">+</span> <span class="Constant">1</span>
+<span class="jsParens">}</span>
+
+<span class="Identifier">add1</span><span class="jsParens">(</span><span class="Constant">10</span><span class="jsParens">)</span>
+
+mul3 <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> n <span class="Statement">*</span> <span class="Constant">3</span>
+<span class="jsParens">}</span>
+
+<span class="Identifier">mul3</span><span class="jsParens">(</span><span class="Identifier">add1</span><span class="jsParens">(</span><span class="Constant">10</span><span class="jsParens">))</span>
+
+make_adder <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> n <span class="Statement">+</span> x
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+add1 <span class="Statement">=</span> <span class="Identifier">make_adder</span><span class="jsParens">(</span><span class="Constant">1</span><span class="jsParens">)</span>
+
+compose <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f, g<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span><span class="Identifier">g</span><span class="jsParens">(</span>n<span class="jsParens">))</span><span class="jsParens">;</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+mul3add1 <span class="Statement">=</span> <span class="Identifier">compose</span><span class="jsParens">(</span>mul3<span class="jsParens">,</span> add1<span class="jsParens">)</span>
+
+<span class="Identifier">mul3add1</span><span class="jsParens">(</span><span class="Constant">10</span><span class="jsParens">)</span>
+<span class="Special">console</span>.log<span class="jsParens">(</span><span class="Constant">1</span><span class="jsParens">)</span><span class="jsParens">;</span>
+
+<span class="jsParens">(</span><span class="Type">function</span><span class="jsParens">(</span>f,g<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span><span class="Identifier">g</span><span class="jsParens">(</span>n<span class="jsParens">))</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span><span class="jsParens">)(</span><span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> n <span class="Statement">*</span> <span class="Constant">3</span>
+<span class="jsParens">}</span><span class="jsParens">,</span> <span class="jsParens">(</span><span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> n <span class="Statement">+</span> x
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span><span class="jsParens">)(</span><span class="Constant">1</span><span class="jsParens">))(</span><span class="Constant">10</span><span class="jsParens">)</span>
+
+<span class="Comment">// ES6语法</span>
+
+<span class="Comment">/*</span>
+<span class="Comment">(((f,g) =&gt; {</span>
+<span class="Comment">   return (n) =&gt; f(g(n))</span>
+<span class="Comment">})((n) =&gt; n * 3,</span>
+<span class="Comment">((n) =&gt; {</span>
+<span class="Comment">   return (x) =&gt; n + x</span>
+<span class="Comment">})(1))(10))</span>
+<span class="Comment">*/</span>
+
+<span class="Comment">// console</span>.<span class="Comment">log(add1(10))</span>
+<span class="Comment">// console</span>.<span class="Comment">log(mul3add1(10));</span>
+<span class="Comment">//</span>
+
+ZERO <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> x
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+ONE <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span>x<span class="jsParens">)</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+TWO <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span><span class="Identifier">f</span><span class="jsParens">(</span>x<span class="jsParens">))</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+to_integer <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span><span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> n <span class="Statement">+</span> <span class="Constant">1</span>
+    <span class="jsParens">}</span><span class="jsParens">)(</span><span class="Constant">0</span><span class="jsParens">)</span>
+<span class="jsParens">}</span>
+
+<span class="Identifier">to_integer</span><span class="jsParens">(</span>ZERO<span class="jsParens">)</span>
+
+<span class="Identifier">to_integer</span><span class="jsParens">(</span>ONE<span class="jsParens">)</span>
+
+<span class="Comment">// console</span>.<span class="Comment">log(to_integer(ZERO));</span>
+<span class="Comment">// console</span>.<span class="Comment">log(to_integer(ONE));</span>
+<span class="Comment">// console</span>.<span class="Comment">log(to_integer(TWO));</span>
+
+
+to_boolean <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span><span class="Constant">true</span><span class="jsParens">)(</span><span class="Constant">false</span><span class="jsParens">)</span>
+<span class="jsParens">}</span>
+
+IF <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>y<span class="jsParens">)</span> <span class="jsParens">{</span>
+            <span class="Identifier">f</span><span class="jsParens">(</span>x<span class="jsParens">)(</span>y<span class="jsParens">)</span>
+        <span class="jsParens">}</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+<span class="Comment">/*</span>
+<span class="Comment"> *</span>
+<span class="Comment">INCREMENT = -&gt; n { -&gt; p { -&gt; x { p[n[p][x]] } } }</span>
+<span class="Comment">DECREMENT = -&gt; n { -&gt; f { -&gt; x { n[-&gt; g { -&gt; h { h[g[f]] } }]</span>
+<span class="Comment">                                  [-&gt; y { x }][-&gt; y { y }] } } }</span>
+<span class="Comment">*/</span>
+
+<span class="Comment">/*</span>
+<span class="Comment">ADD      = -&gt; m { -&gt; n { n[INCREMENT][m] } }</span>
+<span class="Comment">SUBTRACT = -&gt; m { -&gt; n { n[DECREMENT][m] } }</span>
+<span class="Comment">MULTIPLY = -&gt; m { -&gt; n { n[ADD[m]][ZERO] } }</span>
+<span class="Comment">POWER    = -&gt; m { -&gt; n { n[MULTIPLY[m]][ONE] } }</span>
+<span class="Comment">*/</span>
+
+INCREMENT <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+            <span class="Identifier">f</span><span class="jsParens">(</span><span class="Identifier">n</span><span class="jsParens">(</span>f<span class="jsParens">)(</span>x<span class="jsParens">))</span>
+        <span class="jsParens">}</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+ADD <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>m<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Identifier">n</span><span class="jsParens">(</span>INCREMENT<span class="jsParens">)(</span>m<span class="jsParens">)</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+<span class="Comment">// console</span>.<span class="Comment">log(to_integer(INCREMENT(TWO)));</span>
+<span class="Special">console</span>.log<span class="jsParens">(</span><span class="Identifier">to_integer</span><span class="jsParens">(</span><span class="Identifier">INCREMENT</span><span class="jsParens">(</span>ONE<span class="jsParens">)))</span><span class="jsParens">;</span>
+
+<span class="Comment">// console</span>.<span class="Comment">log(to_boolean(TRUE));</span>
+
+
+<span class="Comment">/*</span>
+
+<span class="Comment">ZERO λf</span>.<span class="Comment">λx</span>.<span class="Comment">x</span>
+
+<span class="Comment">ONE λf</span>.<span class="Comment">λx</span>.<span class="Comment">f x</span>
+
+<span class="Comment">TWO λf</span>.<span class="Comment">λx</span>.<span class="Comment">f (f x)</span>
+
+
+<span class="Comment">TRUE λx</span>.<span class="Comment">λy</span>.<span class="Comment">x</span>
+
+<span class="Comment">FALSE λx</span>.<span class="Comment">λy</span>.<span class="Comment">y</span>
+
+<span class="Comment">λX</span>.<span class="Comment">X</span>
+
+
+<span class="Comment">(function(x) {</span>
+<span class="Comment">    return x</span>
+<span class="Comment">})</span>
+
+<span class="Comment">*/</span>
+
+<span class="Comment">// plus ≡ λm</span>.<span class="Comment">λn</span>.<span class="Comment">λf</span>.<span class="Comment">λx</span>.<span class="Comment"> m f (n f x)</span>
+
+<span class="Comment">// JavaScript</span>
+
+<span class="Type">function</span> <span class="Identifier">f</span><span class="jsParens">(</span>x, y<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> x <span class="Statement">*</span> x <span class="Statement">+</span> y <span class="Statement">*</span> y
+<span class="jsParens">}</span>
+
+<span class="Identifier">f</span><span class="jsParens">(</span><span class="Constant">3</span><span class="jsParens">,</span> <span class="Constant">4</span><span class="jsParens">)</span>
+
+<span class="Type">function</span> <span class="Identifier">fC</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>y<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> x <span class="Statement">*</span> x <span class="Statement">+</span> y <span class="Statement">*</span> y
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+<span class="Identifier">fC</span><span class="jsParens">(</span><span class="Constant">3</span><span class="jsParens">)(</span><span class="Constant">4</span><span class="jsParens">)</span>
+
+<span class="Type">function</span> <span class="Identifier">curry</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>y<span class="jsParens">)</span> <span class="jsParens">{</span>
+            <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span>x<span class="jsParens">,</span>y<span class="jsParens">)</span>
+        <span class="jsParens">}</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+ff <span class="Statement">=</span> <span class="Identifier">curry</span><span class="jsParens">(</span>f<span class="jsParens">)</span>
+
+<span class="Identifier">ff</span><span class="jsParens">(</span><span class="Constant">3</span><span class="jsParens">)(</span><span class="Constant">4</span><span class="jsParens">)</span>
+
+
+<span class="Type">function</span> <span class="Identifier">uncurry</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x, y<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span>x<span class="jsParens">)(</span>y<span class="jsParens">)</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+VOID <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> x
+<span class="jsParens">}</span>
+
+TRUE <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>y<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> x
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+FALSE <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>y<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> y
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+IF <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>x<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>y<span class="jsParens">)</span> <span class="jsParens">{</span>
+            <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span>x<span class="jsParens">)(</span>y<span class="jsParens">)</span>
+        <span class="jsParens">}</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+to_boolean <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span><span class="Constant">true</span><span class="jsParens">)(</span><span class="Constant">false</span><span class="jsParens">)</span>
+<span class="jsParens">}</span>
+
+PLUS <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>m<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+            <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>z<span class="jsParens">)</span> <span class="jsParens">{</span>
+                <span class="Statement">return</span> <span class="jsParens">(</span><span class="Identifier">n</span><span class="jsParens">(</span>f<span class="jsParens">)(</span><span class="Identifier">m</span><span class="jsParens">(</span>f<span class="jsParens">)(</span>z<span class="jsParens">)))</span>
+            <span class="jsParens">}</span>
+        <span class="jsParens">}</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+SUCC <span class="Statement">=</span> <span class="Type">function</span><span class="jsParens">(</span>n<span class="jsParens">)</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>f<span class="jsParens">)</span> <span class="jsParens">{</span>
+        <span class="Statement">return</span> <span class="Type">function</span><span class="jsParens">(</span>z<span class="jsParens">)</span> <span class="jsParens">{</span>
+            <span class="Statement">return</span> <span class="Identifier">f</span><span class="jsParens">(</span><span class="Identifier">n</span><span class="jsParens">(</span>f<span class="jsParens">)(</span>z<span class="jsParens">))</span>
+        <span class="jsParens">}</span>
+    <span class="jsParens">}</span>
+<span class="jsParens">}</span>
+
+<span class="Type">var</span> [a<span class="jsParens">,</span> b<span class="jsParens">,</span> c] <span class="Statement">=</span> [<span class="Constant">1</span><span class="jsParens">,</span> <span class="Constant">2</span><span class="jsParens">,</span> <span class="Constant">3</span>]
+
+a
+b
+c
+
+<span class="Type">var</span> <span class="jsParens">{</span> foo<span class="jsParens">,</span> bar <span class="jsParens">}</span> <span class="Statement">=</span> <span class="jsParens">{</span> foo<span class="jsParens">:</span> <span class="Constant">&quot;aaa&quot;</span><span class="jsParens">,</span> bar<span class="jsParens">:</span> <span class="Constant">&quot;bbb&quot;</span> <span class="jsParens">}</span>
+
+foo
+bar
+
+
+[x<span class="jsParens">,</span> y] <span class="Statement">=</span> [y<span class="jsParens">,</span> x]
+
+
+<span class="Type">function</span> <span class="Identifier">f</span><span class="jsParens">()</span> <span class="jsParens">{</span>
+    <span class="Statement">return</span> [<span class="Constant">1</span><span class="jsParens">,</span> <span class="Constant">2</span><span class="jsParens">,</span> <span class="Constant">3</span>]
+<span class="jsParens">}</span>
+<span class="Type">var</span> [a<span class="jsParens">,</span> b<span class="jsParens">,</span> c] <span class="Statement">=</span> <span class="Identifier">f</span><span class="jsParens">()</span>
+
+
+<span class="Type">function</span> <span class="Identifier">f</span><span class="jsParens">(</span>{x, y, z}<span class="jsParens">)</span> <span class="jsParens">{</span>
+<span class="Comment">    // x, y, z</span>
+<span class="jsParens">}</span>
+
+<span class="Identifier">f</span><span class="jsParens">(</span><span class="jsParens">{</span>x<span class="jsParens">:</span><span class="Constant">1</span><span class="jsParens">,</span> y<span class="jsParens">:</span><span class="Constant">2</span><span class="jsParens">,</span> z<span class="jsParens">:</span><span class="Constant">3</span><span class="jsParens">}</span><span class="jsParens">)</span>
+
+
+S <span class="Statement">=</span> <span class="jsParens">{</span> <span class="Constant">2</span><span class="Statement">*</span>x <span class="Statement">|</span> x ∈ N<span class="jsParens">,</span> x <span class="Statement">&lt;</span> <span class="Constant">10</span> <span class="jsParens">}</span>
+
+[<span class="Constant">2</span><span class="Statement">*</span>x <span class="Statement">|</span> x <span class="Statement">&lt;-</span> [<span class="Constant">1</span>..<span class="Constant">20</span>]<span class="jsParens">,</span> x<span class="Statement">&lt;</span><span class="Constant">10</span>]
+
+[<span class="Constant">2</span><span class="Statement">*</span>x <span class="Statement">|</span> x <span class="Statement">&lt;-</span> [<span class="Constant">1</span>..<span class="Constant">20</span>]<span class="jsParens">,</span> <span class="Constant">2</span><span class="Statement">*</span>x <span class="Statement">&gt;=</span> <span class="Constant">12</span><span class="jsParens">,</span> <span class="Constant">2</span><span class="Statement">*</span>x<span class="Statement">&lt;=</span><span class="Constant">18</span>]
+
+x <span class="Statement">=</span> [<span class="Constant">1</span>..<span class="Constant">20</span>] <span class="Comment">// coffee script</span>
+
+[<span class="Statement">for</span> <span class="jsParens">(</span>i of x<span class="jsParens">)</span> <span class="Statement">if</span> <span class="jsParens">(</span>i<span class="Statement">&lt;</span><span class="Constant">10</span><span class="jsParens">)</span> i<span class="Statement">*</span><span class="Constant">2</span>]
+
+[<span class="Statement">for</span> <span class="jsParens">(</span>i of x<span class="jsParens">)</span> <span class="Statement">if</span> <span class="jsParens">(</span><span class="Constant">2</span><span class="Statement">*</span>i<span class="Statement">&gt;</span><span class="Constant">12</span> <span class="Statement">&amp;&amp;</span> <span class="Constant">2</span><span class="Statement">*</span>i <span class="Statement">&lt;=</span><span class="Constant">18</span><span class="jsParens">)</span> i<span class="Statement">*</span><span class="Constant">2</span>]
+
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
