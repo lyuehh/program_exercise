@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.xx.js"></script>
+</head>
+<body>
+    <div class="xa23"></div>
+    <script type="text/javascript" charset="utf-8">
+        // no jquery
+    var a = new Abc('.xa23', {x2: '123'});
+    console.log('----');
+
+    // with jquery
+    $('.xa23').abc({x1: '123'});
+    console.log('======');
+    $('.xa23').data('abc').fun2();
+
+    </script>
+</body>
+</html>
